@@ -16,8 +16,8 @@ export default async function UserProfile({ id }: { id: string }) {
   const { name, email, phone, address } = await getData(id);
   return (
     <>
-      <Typography variant="h4">{name}</Typography>
-      <Box paddingTop={2}>
+      <Typography variant="h5" fontWeight="bold" color="primary">{name}</Typography>
+      <Box paddingTop={1}>
         <Typography variant="caption">Email</Typography>
         <Typography>{email}</Typography>
         <Typography variant="caption">Phone</Typography>

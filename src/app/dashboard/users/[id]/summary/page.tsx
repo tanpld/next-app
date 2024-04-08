@@ -30,15 +30,15 @@ export default async function UserSummary({ params }: { params: Params }) {
   const comments = await getComments(params.id);
 
   return (
-    <Grid container spacing={2} p={2}>
+    <Grid container spacing={2} pt={2}>
       <Grid item xs={6}>
-        <Card sx={{ p: 2 }}>
+        <Card variant="outlined">
           <Typography>Posts</Typography>
           <Typography variant="h5">{posts.length}</Typography>
         </Card>
       </Grid>
       <Grid item xs={6}>
-        <Card sx={{ p: 2 }}>
+        <Card variant="outlined">
           <Typography>Comments</Typography>
           <Typography variant="h5">{comments.length}</Typography>
         </Card>

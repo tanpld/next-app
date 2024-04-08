@@ -1,3 +1,5 @@
+"use client";
+
 import { Home, People, Receipt } from "@mui/icons-material";
 import {
   Box,
@@ -8,6 +10,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const links = [
   { name: "Home", href: "/dashboard", icon: Home },
@@ -20,6 +23,8 @@ const links = [
 ];
 
 export default function Sidenav() {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <Box width="100%">
       <List>
@@ -27,12 +32,22 @@ export default function Sidenav() {
           const LinkIcon = link.icon;
           return (
             <Link href={link.href} key={link.name}>
-              <ListItem disablePadding>
+              <ListItem
+                disablePadding
+                sx={{
+                  backgroundColor: pathname === link.href ? "#e0f2fe" : "",
+                }}
+              >
                 <ListItemButton>
-                  <ListItemIcon>
+                  <ListItemIcon
+                    sx={{ color: pathname === link.href ? "#2f6feb" : "" }}
+                  >
                     <LinkIcon />
                   </ListItemIcon>
-                  <ListItemText primary={link.name} />
+                  <ListItemText
+                    primary={link.name}
+                    sx={{ color: pathname === link.href ? "#2f6feb" : "" }}
+                  />
                 </ListItemButton>
               </ListItem>
             </Link>

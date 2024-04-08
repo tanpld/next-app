@@ -1,4 +1,6 @@
+import { Visibility } from "@mui/icons-material";
 import {
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -32,7 +34,7 @@ async function Author({ id }: { id: string }) {
   const author = await getAuthor(id);
   return (
     <Link href={`users/${id}`}>
-      <Typography color="skyblue">{author?.name}</Typography>
+      <Typography color="primary">{author?.name}</Typography>
     </Link>
   );
 }
@@ -42,12 +44,15 @@ export default async function Posts() {
 
   return (
     <div>
-      <Typography variant="h4">Posts</Typography>
-      <Table>
+      <Typography variant="h5" color="primary" fontWeight="bold" mb={1}>
+        Posts
+      </Typography>
+      <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Title</TableCell>
             <TableCell>Author</TableCell>
+            <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -56,6 +61,15 @@ export default async function Posts() {
               <TableCell>{item.title}</TableCell>
               <TableCell>
                 <Author id={item.userId} />
+              </TableCell>
+              <TableCell>
+                <IconButton
+                  LinkComponent={Link}
+                  href={`posts/${item.id}`}
+                  color="primary"
+                >
+                  <Visibility />
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}

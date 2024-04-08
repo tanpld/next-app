@@ -1,5 +1,6 @@
 import { Visibility } from "@mui/icons-material";
 import {
+  Divider,
   IconButton,
   Table,
   TableBody,
@@ -26,8 +27,10 @@ export default async function Users() {
 
   return (
     <div>
-      <Typography variant="h4">Users</Typography>
-      <Table>
+      <Typography variant="h5" color="primary" fontWeight="bold" mb={1}>
+        Users
+      </Typography>
+      <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
@@ -47,7 +50,11 @@ export default async function Users() {
                 {item.address.suite}, {item.address.street}, {item.address.city}
               </TableCell>
               <TableCell>
-                <IconButton LinkComponent={Link} href={`users/${item.id}`}>
+                <IconButton
+                  LinkComponent={Link}
+                  href={`users/${item.id}`}
+                  color="primary"
+                >
                   <Visibility />
                 </IconButton>
               </TableCell>

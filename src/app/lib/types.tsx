@@ -19,3 +19,11 @@ export type Post = {
   title: string;
   body: string;
 };
+
+export type Comment = {
+  id: string;
+  postId: string;
+  name: string;
+  email: string;
+  body: string;
+};

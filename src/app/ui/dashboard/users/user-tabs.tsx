@@ -14,7 +14,7 @@ export default function UserTabs({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    router.push(`/dashboard/users/${params.id}/${value}`);
+    router.replace(`/dashboard/users/${params.id}/${value}`);
   }, [params.id, router, value]);
 
   return (
@@ -24,7 +24,6 @@ export default function UserTabs({ children }: { children: ReactNode }) {
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Summary" value="summary" />
             <Tab label="Posts" value="posts" />
-            <Tab label="Comments" value="comments" />
           </TabList>
         </Box>
         {children}

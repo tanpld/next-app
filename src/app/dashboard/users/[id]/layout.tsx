@@ -13,10 +13,10 @@ export default function UserTabsLayout({
 }) {
   return (
     <Stack direction="row" spacing={2}>
-      <Card sx={{ padding: 2, width: 300 }}>
+      <Card sx={{ width: 300 }}>
         <UserProfile id={params.id} />
       </Card>
-      <Card sx={{ padding: 2, flexGrow: 1 }}>
+      <Card sx={{ flexGrow: 1 }}>
         <UserTabs>{children}</UserTabs>
       </Card>
     </Stack>

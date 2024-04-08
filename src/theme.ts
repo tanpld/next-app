@@ -7,6 +7,19 @@ const theme = createTheme({
   typography: {
     fontFamily: inter.style.fontFamily,
   },
+  components: {
+    MuiCard: {
+      defaultProps: {
+        elevation: 0,
+      },
+      styleOverrides: {
+        root: {
+          backgroundColor: "#f9fafb",
+          padding: 16
+        },
+      },
+    },
+  },
 });
 
 export default theme;
