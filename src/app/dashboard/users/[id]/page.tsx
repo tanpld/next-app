@@ -1,6 +1,7 @@
 import { User } from "@/app/lib/types";
 import { getUserAddress } from "@/app/lib/utils";
 import { Box, Card, Stack, Typography } from "@mui/material";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 async function getData(id: string): Promise<User> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
@@ -12,19 +13,8 @@ async function getData(id: string): Promise<User> {
   return res.json();
 }
 
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-
-export default async function UserProfile({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function UserDetails({ params }: { params: Params }) {
   const { name, email, phone, address } = await getData(params.id);
-
   return (
     <Stack direction="row" spacing={2}>
       <Card sx={{ padding: 2, width: 300 }}>
@@ -38,8 +28,7 @@ export default async function UserProfile({
           <Typography>{getUserAddress(address)}</Typography>
         </Box>
       </Card>
-
-      <Card sx={{ padding: 2, flexGrow: 1 }}>Posts Comments</Card>
+      <Card sx={{ padding: 2, flexGrow: 1 }}>Posts | Comments</Card>
     </Stack>
   );
 }

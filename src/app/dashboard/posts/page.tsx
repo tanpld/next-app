@@ -30,7 +30,11 @@ async function getAuthor(id: string) {
 
 async function Author({ id }: { id: string }) {
   const author = await getAuthor(id);
-  return <Link href={`users/${id}`}>{author?.name}</Link>;
+  return (
+    <Link href={`users/${id}`}>
+      <Typography color="skyblue">{author?.name}</Typography>
+    </Link>
+  );
 }
 
 export default async function Posts() {

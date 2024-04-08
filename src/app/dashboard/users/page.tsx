@@ -1,5 +1,6 @@
+import { Visibility } from "@mui/icons-material";
 import {
-  Card,
+  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -7,6 +8,8 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
+import { redirect } from "next/dist/server/api-utils";
+import Link from "next/link";
 
 async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -31,6 +34,7 @@ export default async function Users() {
             <TableCell>Email</TableCell>
             <TableCell>Phone</TableCell>
             <TableCell>Address</TableCell>
+            <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,6 +45,11 @@ export default async function Users() {
               <TableCell>{item.phone}</TableCell>
               <TableCell>
                 {item.address.suite}, {item.address.street}, {item.address.city}
+              </TableCell>
+              <TableCell>
+                <IconButton LinkComponent={Link} href={`users/${item.id}`}>
+                  <Visibility />
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}
