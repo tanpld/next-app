@@ -36,7 +36,7 @@ async function getAuthor(id: string) {
   return res.json();
 }
 
-export default async function PostDetails({ params }: Params) {
+export default async function PostDetails({ params }: { params: Params }) {
   const post = await getPost(params.id);
   const comments = await getComments(params.id);
   const author = await getAuthor(post.userId);

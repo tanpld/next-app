@@ -23,7 +23,7 @@ async function getPosts(userId: string) {
   return res.json();
 }
 
-export default async function UserPosts({ params }: Params) {
+export default async function UserPosts({ params }: {params: Params}) {
   const posts = await getPosts(params.id);
 
   return (
