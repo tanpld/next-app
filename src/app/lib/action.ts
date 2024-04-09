@@ -49,8 +49,19 @@ export async function updateInvoice(id: string, formData: FormData) {
   });
   const data = await res.json();
 
-  console.log(data)
+  console.log(data);
 
   revalidatePath("/dasboard/posts");
   redirect("/dashboard/posts");
+}
+
+export async function deletePost(id: string) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: "DELETE",
+  });
+  const data = await res.json();
+
+  console.log(data);
+
+  revalidatePath("/dashboard/invoices");
 }

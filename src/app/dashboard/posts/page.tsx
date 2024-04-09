@@ -1,4 +1,5 @@
-import { Edit, Visibility } from "@mui/icons-material";
+import { DeletePostButton } from "@/app/ui/dashboard/posts/buttons";
+import { Delete, Edit, Visibility } from "@mui/icons-material";
 import {
   Button,
   Card,
@@ -72,20 +73,25 @@ export default async function Posts() {
                   <Author id={item.userId} />
                 </TableCell>
                 <TableCell>
-                  <IconButton
-                    LinkComponent={Link}
-                    href={`posts/${item.id}`}
-                    color="primary"
-                  >
-                    <Visibility />
-                  </IconButton>
-                  <IconButton
-                    LinkComponent={Link}
-                    href={`posts/${item.id}/edit`}
-                    color="primary"
-                  >
-                    <Edit />
-                  </IconButton>
+                  <Stack direction="row">
+                    <IconButton
+                      size="small"
+                      LinkComponent={Link}
+                      href={`posts/${item.id}`}
+                      color="primary"
+                    >
+                      <Visibility />
+                    </IconButton>
+                    <IconButton
+                      size="small"
+                      LinkComponent={Link}
+                      href={`posts/${item.id}/edit`}
+                      color="primary"
+                    >
+                      <Edit />
+                    </IconButton>
+                    <DeletePostButton id={item.id} />
+                  </Stack>
                 </TableCell>
               </TableRow>
             ))}
