@@ -1,12 +1,13 @@
 import { User } from "@/app/lib/types";
 import { getUserAddress } from "@/app/lib/utils";
 import { Box, Typography } from "@mui/material";
+import { notFound } from "next/navigation";
 
 async function getData(id: string): Promise<User> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    notFound();
   }
 
   return res.json();
@@ -16,7 +17,9 @@ export default async function UserProfile({ id }: { id: string }) {
   const { name, email, phone, address } = await getData(id);
   return (
     <>
-      <Typography variant="h5" fontWeight="bold" color="primary">{name}</Typography>
+      <Typography variant="h5" fontWeight="bold" color="primary">
+        {name}
+      </Typography>
       <Box paddingTop={1}>
         <Typography variant="caption">Email</Typography>
         <Typography>{email}</Typography>

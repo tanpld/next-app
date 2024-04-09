@@ -7,7 +7,7 @@ async function getPosts(userId: string) {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    // throw new Error("Failed to fetch data");
   }
 
   return res.json();
@@ -19,7 +19,7 @@ async function getComments(userId: string) {
   );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    // throw new Error("Failed to fetch data");
   }
 
   return res.json();
