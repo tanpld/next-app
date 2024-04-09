@@ -16,8 +16,8 @@ export default function CreatePost() {
         Create Post
       </Typography>
       <form action={createPost}>
-        <Stack spacing={1} component={Card}>
-          <TextField label="Title" name="title" />{" "}
+        <Stack spacing={2} component={Card}>
+          <TextField label="Title" name="title" />
           <TextField label="Body" name="body" />
           <Stack
             spacing={1}

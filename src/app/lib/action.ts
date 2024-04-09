@@ -30,5 +30,27 @@ export async function createPost(formData: FormData) {
   const data = await res.json();
 
   revalidatePath("/dasboard/posts");
-  redirect('/dashboard/posts');
+  redirect("/dashboard/posts");
+}
+
+export async function updateInvoice(id: string, formData: FormData) {
+  const rawFormData = Object.fromEntries(formData.entries());
+  const { title, body } = CreatePost.parse(rawFormData);
+
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      title,
+      body,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
+  const data = await res.json();
+
+  console.log(data)
+
+  revalidatePath("/dasboard/posts");
+  redirect("/dashboard/posts");
 }

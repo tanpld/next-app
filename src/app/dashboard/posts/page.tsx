@@ -1,4 +1,4 @@
-import { Visibility } from "@mui/icons-material";
+import { Edit, Visibility } from "@mui/icons-material";
 import {
   Button,
   Card,
@@ -78,6 +78,13 @@ export default async function Posts() {
                     color="primary"
                   >
                     <Visibility />
+                  </IconButton>
+                  <IconButton
+                    LinkComponent={Link}
+                    href={`posts/${item.id}/edit`}
+                    color="primary"
+                  >
+                    <Edit />
                   </IconButton>
                 </TableCell>
               </TableRow>
