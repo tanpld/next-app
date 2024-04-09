@@ -1,7 +1,9 @@
 import { Visibility } from "@mui/icons-material";
 import {
+  Button,
   Card,
   IconButton,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -48,7 +50,12 @@ export default async function Posts() {
       <Typography variant="h5" color="primary" fontWeight="bold" mb={1}>
         Posts
       </Typography>
-      <Card sx={{ overflow: 'auto' }}>
+      <Stack alignItems="flex-end" mb={2}>
+        <Button variant="contained" LinkComponent={Link} href="posts/create">
+          Add new
+        </Button>
+      </Stack>
+      <Card sx={{ overflow: "auto" }}>
         <Table size="small">
           <TableHead>
             <TableRow>
