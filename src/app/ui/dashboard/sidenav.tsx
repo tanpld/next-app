@@ -22,16 +22,16 @@ const links = [
   { name: "Users", href: "/dashboard/users", icon: People },
 ];
 
-export default function Sidenav() {
+export default function Sidenav({ onSelect }: { onSelect: () => void }) {
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <Box width="100%">
       <List>
         {links.map((link) => {
           const LinkIcon = link.icon;
           return (
-            <Link href={link.href} key={link.name}>
+            <Link href={link.href} key={link.name} onClick={onSelect}>
               <ListItem
                 disablePadding
                 sx={{

@@ -31,13 +31,13 @@ export default async function UserSummary({ params }: { params: Params }) {
 
   return (
     <Grid container spacing={2} pt={2}>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Card variant="outlined">
           <Typography>Posts</Typography>
           <Typography variant="h5">{posts.length}</Typography>
         </Card>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={12} sm={6}>
         <Card variant="outlined">
           <Typography>Comments</Typography>
           <Typography variant="h5">{comments.length}</Typography>

@@ -1,5 +1,6 @@
 import { Visibility } from "@mui/icons-material";
 import {
+  Card,
   Divider,
   IconButton,
   Table,
@@ -30,38 +31,41 @@ export default async function Users() {
       <Typography variant="h5" color="primary" fontWeight="bold" mb={1}>
         Users
       </Typography>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell>Address</TableCell>
-            <TableCell>Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((item: any) => (
-            <TableRow key={item.id}>
-              <TableCell>{item.name}</TableCell>
-              <TableCell>{item.email}</TableCell>
-              <TableCell>{item.phone}</TableCell>
-              <TableCell>
-                {item.address.suite}, {item.address.street}, {item.address.city}
-              </TableCell>
-              <TableCell>
-                <IconButton
-                  LinkComponent={Link}
-                  href={`users/${item.id}`}
-                  color="primary"
-                >
-                  <Visibility />
-                </IconButton>
-              </TableCell>
+      <Card sx={{ overflow: 'auto' }}>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Phone</TableCell>
+              <TableCell>Address</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {data.map((item: any) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.name}</TableCell>
+                <TableCell>{item.email}</TableCell>
+                <TableCell>{item.phone}</TableCell>
+                <TableCell>
+                  {item.address.suite}, {item.address.street},{" "}
+                  {item.address.city}
+                </TableCell>
+                <TableCell>
+                  <IconButton
+                    LinkComponent={Link}
+                    href={`users/${item.id}`}
+                    color="primary"
+                  >
+                    <Visibility />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
     </div>
   );
 }

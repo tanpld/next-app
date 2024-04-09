@@ -12,8 +12,8 @@ export default function UserTabsLayout({
   params: Params;
 }) {
   return (
-    <Stack direction="row" spacing={2}>
-      <Card sx={{ width: 300 }}>
+    <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+      <Card sx={{ width: { xs: 'unset', sm: 300 } }}>
         <UserProfile id={params.id} />
       </Card>
       <Card sx={{ flexGrow: 1 }}>

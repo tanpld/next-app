@@ -1,5 +1,6 @@
 import { Visibility } from "@mui/icons-material";
 import {
+  Card,
   IconButton,
   Table,
   TableBody,
@@ -47,34 +48,36 @@ export default async function Posts() {
       <Typography variant="h5" color="primary" fontWeight="bold" mb={1}>
         Posts
       </Typography>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>Author</TableCell>
-            <TableCell>Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((item: any) => (
-            <TableRow key={item.id}>
-              <TableCell>{item.title}</TableCell>
-              <TableCell>
-                <Author id={item.userId} />
-              </TableCell>
-              <TableCell>
-                <IconButton
-                  LinkComponent={Link}
-                  href={`posts/${item.id}`}
-                  color="primary"
-                >
-                  <Visibility />
-                </IconButton>
-              </TableCell>
+      <Card sx={{ overflow: 'auto' }}>
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell>Author</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {data.map((item: any) => (
+              <TableRow key={item.id}>
+                <TableCell>{item.title}</TableCell>
+                <TableCell>
+                  <Author id={item.userId} />
+                </TableCell>
+                <TableCell>
+                  <IconButton
+                    LinkComponent={Link}
+                    href={`posts/${item.id}`}
+                    color="primary"
+                  >
+                    <Visibility />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
     </div>
   );
 }

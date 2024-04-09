@@ -44,7 +44,7 @@ export default async function PostDetails({ params }: { params: Params }) {
   return (
     <Stack spacing={2}>
       <Grid container justifyContent="space-between">
-        <Grid item xs={9} pr={2}>
+        <Grid item xs={12} sm={9} pr={{ xs: 2, sm: 0 }}>
           <Stack spacing={2}>
             <Typography variant="h5" fontWeight="bold" color="primary">
               {post.title}
@@ -53,7 +53,7 @@ export default async function PostDetails({ params }: { params: Params }) {
           </Stack>
         </Grid>
 
-        <Grid item xs={3}>
+        <Grid item xs={12} sm={3} mt={{ xs: 1, sm: 0 }}>
           <Card elevation={0} sx={{ backgroundColor: "#e0f2fe" }}>
             <Stack>
               <Typography>About the author</Typography>
