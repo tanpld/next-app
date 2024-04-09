@@ -1,5 +1,5 @@
 import { DeletePostButton } from "@/app/ui/dashboard/posts/buttons";
-import { Delete, Edit, Visibility } from "@mui/icons-material";
+import { Edit, Visibility } from "@mui/icons-material";
 import {
   Button,
   Card,

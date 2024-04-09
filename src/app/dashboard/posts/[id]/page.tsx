@@ -3,12 +3,13 @@ import { SpeakerNotes } from "@mui/icons-material";
 import { Card, Divider, Grid, Icon, Stack, Typography } from "@mui/material";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getPost(id: string): Promise<Post> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    notFound()
   }
 
   return res.json();

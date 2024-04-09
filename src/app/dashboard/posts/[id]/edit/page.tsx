@@ -2,12 +2,13 @@ import { createPost, updateInvoice } from "@/app/lib/action";
 import { Post } from "@/app/lib/types";
 import { Stack, Typography, Card, TextField, Button } from "@mui/material";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 async function getData(id: string): Promise<Post> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    notFound();
   }
 
   return res.json();
@@ -25,8 +26,8 @@ export default async function EditPost({ params }: { params: { id: string } }) {
       </Typography>
       <form action={updatePostWithId}>
         <Stack spacing={2} component={Card}>
-          <TextField label="Title" name="title" defaultValue={title} />
-          <TextField label="Body" name="body" defaultValue={body} />
+          <TextField label="Title" name="title" defaultValue={title} required/>
+          <TextField label="Body" name="body" defaultValue={body} required/>
           <Stack
             spacing={1}
             direction={{ xs: "column", sm: "row" }}

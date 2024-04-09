@@ -17,8 +17,8 @@ export default function CreatePost() {
       </Typography>
       <form action={createPost}>
         <Stack spacing={2} component={Card}>
-          <TextField label="Title" name="title" />
-          <TextField label="Body" name="body" />
+          <TextField label="Title" name="title" required />
+          <TextField label="Body" name="body" required />
           <Stack
             spacing={1}
             direction={{ xs: "column", sm: "row" }}
